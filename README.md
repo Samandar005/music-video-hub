@@ -11,16 +11,20 @@ Welcome to **MusicVideoHub**! This platform is designed to provide users with an
 ## Screenshots
 
 ### Home Page
-![Home Page](![image](https://github.com/user-attachments/assets/a11be333-5c07-4ad2-8595-f3de1ef90574)
-)
+![image](https://github.com/user-attachments/assets/8fdb8be6-c48a-498b-ba3a-d11854518232)
+
+
+### Create Music
+![image](https://github.com/user-attachments/assets/e19edd75-01a7-4cc5-94a7-386c9126f26f)
+
 
 ### Music List
-![Music List](![image](https://github.com/user-attachments/assets/f7554930-71e0-4d0d-8081-d4fd29a577c2)
-)
+![image](https://github.com/user-attachments/assets/4b2326a7-d629-4b0e-a814-b6a2075af1f8)
 
-### Add New Music
-![Add New Music](![image](https://github.com/user-attachments/assets/8839ee6a-c029-473f-93db-dcb4566a48e1)
-)
+
+### Detail
+![image](https://github.com/user-attachments/assets/a91fb0de-3a7f-488d-8f84-51dd8a177815)
+
 
 ## Technologies Used
 
