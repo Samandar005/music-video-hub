@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %} Music List - MusicVideoHub {% endblock %}
+
+{% block content %}
+    <section class="page-header">
+        <h1 class="animated-text">Music Collection</h1>
+        <a href="{% url 'tracks:create' %}" class="btn pulse"><i class="fas fa-plus"></i> Add New Music</a>
+    </section>
+
+    <section class="music-list">
+        {% for track in tracks %}
+            <div class="music-item glass-effect">
+                <img src="{{ track.cover_image.url }}" alt="{{ track.title }}">
+                <div class="music-info">
+                    <h3>{{ track.title }}</h3>
+                    <p>{{ track.artist }}</p>
+                </div>
+                <div class="music-actions">
+                    <a href="{{ track.get_detail_url }}" class="btn btn-info"><i class="fas fa-info-circle"></i></a>
+                    <a href="{{ track.get_update_url }}" class="btn btn-edit"><i class="fas fa-edit"></i></a>
+                    <a href="{{ track.get_delete_url }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                </div>
+            </div>
+        {% empty %}
+            <h3>No music found.</h3>
+        {% endfor %}
+    </section>
+{% endblock %}

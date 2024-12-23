@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+
+{% block title %} {% if track %} Update Music - MusicVideoHub {% else %} Create Music - MusicVideoHub {% endif %} {% endblock %}
+
+{% block content %}
+    <section class="page-header">
+        <h1 class="animated-text">{% if track %} Update Music {% else %} Create New Music {% endif %}</h1>
+        <a href="{% url 'tracks:list' %}" class="btn"><i class="fas fa-arrow-left"></i> Back to List</a>
+    </section>
+
+    <section class="music-form glass-effect">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" value="{{ track.title }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="artist">Artist</label>
+                <input type="text" id="artist" name="artist" value="{{ track.artist }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="album">Album</label>
+                <input type="text" id="album" name="album" value="{{ track.album }}" >
+            </div>
+
+            <div class="form-group">
+                <label for="genre">Genre</label>
+                <input type="text" id="genre" name="genre" value="{{ track.genre }}" >
+            </div>
+
+            <div class="form-group">
+                <label for="release_date">Release Date</label>
+                {% if track.release_date %}
+                <input type="date" id="release_date" name="release_date" value="{{ track.release_date|date:'Y-m-d' }}">
+                {% else %}
+                <input type="date" id="release_date" name="release_date">
+                {% endif %}
+            </div>
+
+
+            <div class="form-group">
+                 <label for="cover_image">Cover Image</label>
+                {% if track.cover_image %}
+                <img src="{{ track.cover_image.url }}" alt="{{ track.title }}" class="current-image" style="width: 350px; height: 200px;">
+                {% endif %}
+                <input type="file" id="cover_image" name="cover_image" accept="image/*">
+            </div>
+
+            <div class="form-group">
+                <label for="audio_file">Audio File</label>
+                {% if track.audio_file %}
+                <audio controls>
+                <source src="{{ track.audio_file.url }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+                {% endif %}
+                <br>
+                <input type="file" id="audio_file" name="audio_file" accept="audio/*" required>
+            </div>
+
+            {% if track %}
+            <button type="submit" class="btn btn-primary">Update</button>
+            {% else %}
+            <button type="submit" class="btn btn-primary">Create New Music</button>
+            {% endif %}
+        </form>
+    </section>
+{% endblock %}

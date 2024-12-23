@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Music Detail - MusicVideoHub {% endblock %}
+
+{% block content %}
+    <section class="page-header">
+        <h1 class="animated-text">Music Detail</h1>
+        <a href="{% url 'tracks:list' %}" class="btn"><i class="fas fa-arrow-left"></i> Back to List</a>
+    </section>
+
+    <section class="music-detail glass-effect">
+        <div class="music-cover">
+            <img src="{{ track.cover_image.url }}" alt="{{ track.title }}">
+        </div>
+        <div class="music-info">
+            <h2>{{ track.title }}</h2>
+            <p class="artist">{{ track.artist }}</p>
+            <p class="album">Album: {{ track.album }}</p>
+            <p class="genre">Genre: {{ track.genre }}</p>
+            <p class="release-date">Released: {{ track.release_date | date:"Y-m-d" }}</p>
+            <div class="music-player">
+                <audio controls>
+                    <source src="{{ track.audio_file.url }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="action-buttons">
+                <a href="{{ track.get_update_url }}" class="btn btn-edit"><i class="fas fa-edit"></i> Edit</a>
+                <a href="{{ track.get_delete_url }}" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

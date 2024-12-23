@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block title %} MusicVideo Hub - Your Entertainment Portal {% endblock %}
+
+{% block content %}
+    <section class="hero">
+        <h1 class="animated-text">Welcome to MusicVideo<span>Hub</span></h1>
+        <p class="subtitle">Your ultimate destination for music and videos</p>
+    </section>
+
+    <section class="featured">
+           <div class="featured-item music-card">
+                <div class="card-content">
+                    <h2>Featured Music</h2>
+                    <img src="static\images\ab67616d00001e027b981c68e92698f8b7caf715.jpg" alt="Featured Music">
+                    <p>Discover our latest and greatest tracks</p>
+                    <a href="{% url 'tracks:list' %}" class="btn pulse">Explore Music</a>
+                </div>
+           </div>
+            <div class="featured-item video-card">
+                <div class="card-content">
+                    <h2>Featured Video</h2>
+                    <img src="static\images\video-300x300.png" alt="Featured Video">
+                    <p>Watch our top-rated videos</p>
+                    <a href="video-list.html" class="btn pulse">Explore Videos</a>
+                </div>
+            </div>
+    </section>
+{% endblock %}
