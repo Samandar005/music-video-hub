@@ -24,6 +24,7 @@ from tracks.views import home
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('tracks/', include('tracks.urls')),
+    path('videos/', include('videos.urls')),
     path('', home, name='home'),
 ]
 

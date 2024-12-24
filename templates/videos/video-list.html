@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %} Video List - MusicVideoHub {% endblock %}
+
+{% block content %}
+    <section class="page-header">
+        <h1 class="animated-text"> Video Collection </h1>
+        <a href="{% url 'videos:create' %}" class="btn pulse"><i class="fas fa-plus"></i> Add New Video</a>
+    </section>
+
+    <section class="music-list">
+        {% for video in videos %}
+            <div class="music-item glass-effect">
+                <video controls width="350" height="290">
+                    <source src="{{ video.video_file.url }}" type="video/mp4">
+                </video>
+
+                <div class="music-info">
+                    <h3>{{ video.title }}</h3>
+                    <p>{{ video.artist }}</p>
+                </div>
+                <div class="music-actions">
+                    <a href="{{ video.get_detail_url }}" class="btn btn-info"><i class="fas fa-info-circle"></i></a>
+                    <a href="{{ video.get_update_url }}" class="btn btn-edit"><i class="fas fa-edit"></i></a>
+                    <a href="{{ video.get_delete_url }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                </div>
+            </div>
+        {% empty %}
+            <h3>No video found.</h3>
+        {% endfor %}
+    </section>
+{% endblock %}
